@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloths Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h1>.cloths</h1>
+    <ul>
+      <li>Dashboard</li>
+      <li>Upload Products</li>
+      <li>Orders</li>
+      <li>Delivery Tracking</li>
+      <li>Stocks</li>
+      <li>Expense</li>
+      <li>Reviews & Ratings</li>
+      <li>Advertisement</li>
+      <li>Log Out</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div class="search-box">
+        <input type="text" placeholder="Search.....">
+      </div>
+      <div class="user-info">
+        <img src="" alt="User" />
+        <span>Joseph (Admin)</span>
+      </div>
+    </div>
+
+    <h2>Stocks</h2>
+    <button class="btn"><a href="https://sathishk2003.github.io/stocks2/">+ New Product</a></button>
+    <table>
+      <thead>
+        <tr>
+          <th>Sl. no.</th>
+          <th>Product code</th>
+          <th>Category</th>
+          <th>Sub Category</th>
+          <th>Product</th>
+          <th>Updated On</th>
+          <th>Available Qty.</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="stock-table">
+        <!-- Rows will be inserted here by JavaScript -->
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <button class="active">1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+    </div>
+  </div>
+
+  <script>
+    const stocks = [
+      ["001", "Men", "T-shirt", "Men Printed Polo...", "07/12/2023", 80],
+      ["002", "Men", "T-shirt", "Men Printed Rou...", "07/12/2023", 100],
+      ["003", "Men", "Shirt", "Formal Shirt", "07/12/2023", 200],
+      ["004", "Men", "Shirt", "Casual Shirt", "07/12/2023", 250],
+      ["005", "Men", "Pant", "Black Track Pants", "07/12/2023", 300],
+      ["006", "Woman", "Saree", "Cotton Blend Saree", "07/12/2023", 350],
+      ["007", "Woman", "Kurthi", "Anarkali Kurta", "07/12/2023", 400],
+      ["008", "Woman", "Shawl", "Chiffon Shawl", "07/12/2023", 450],
+      ["009", "Kids", "T-shirt", "Pure Cotton T Shirt", "07/12/2023", 500],
+      ["010", "Kids", "Shorts", "Shorts", "07/12/2023", 550],
+      ["011", "Kids", "Vest", "Vest For Baby", "07/12/2023", 600],
+      ["012", "Woman", "Blouse", "Round Neck Blouse", "07/12/2023", 650],
+      ["013", "Accessories", "Belt", "Belts", "07/12/2023", 700],
+      ["014", "Accessories", "Kerchief", "Hand Kerchief", "07/12/2023", 750],
+      ["015", "Kids", "T-shirt", "Printed T-shirts", "07/12/2023", 800]
+    ];
+
+    const tableBody = document.getElementById("stock-table");
+
+    stocks.forEach((item, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${item[0]}</td>
+        <td>${item[1]}</td>
+        <td>${item[2]}</td>
+        <td>${item[3]}</td>
+        <td>${item[4]}</td>
+        <td>${item[5]}</td>
+        <td><button class="btn">Add More</button></td>
+      `;
+      tableBody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
